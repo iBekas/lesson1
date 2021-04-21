@@ -41,7 +41,7 @@ public class lesson1 {
         task7(name);
 
         // Задание 8 - task8
-        int year = 800;
+        int year = 1600;
         System.out.println("Задание 8 - " + task8(year));
     }
 
