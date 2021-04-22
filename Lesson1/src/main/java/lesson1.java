@@ -41,15 +41,15 @@ public class lesson1 {
         task7(name);
 
         // Задание 8 - task8
-        int year = 1600;
+        int year = 2200;
         System.out.println("Задание 8 - " + task8(year));
     }
 
 
 
     static float task3 (float a, float b, float c, float d) {
-        float f = (float) (a * (b + (c / d)));
-        return f;
+        return (a * (b + (c / d)));
+
     }
 
 
