@@ -48,8 +48,8 @@ public class lesson1 {
 
 
     static float task3 (float a, float b, float c, float d) {
-        float f = (float) (a * (b + (c / d)));
-        return f;
+        return (a * (b + (c / d)));
+
     }
 
 
