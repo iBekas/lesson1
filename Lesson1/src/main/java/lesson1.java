@@ -41,7 +41,7 @@ public class lesson1 {
         task7(name);
 
         // Задание 8 - task8
-        int year = 2200;
+        int year = 16;
         System.out.println("Задание 8 - " + task8(year));
     }
 
@@ -84,12 +84,11 @@ public class lesson1 {
     }
 
     static String task8 (int x) {
-        double y = (double)x;
         String i = "високосный";
         String z = "не високосный";
-        if (y%4 == 0 && y%100 != 0) {
+        if (x%4 == 0 && x%100 != 0) {
             return i;
-        } else if (y%400 == 0){
+        } else if (x%400 == 0){
             return i;
         } else {
             return z;
