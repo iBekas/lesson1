@@ -25,19 +25,23 @@ public class lesson3 {
     }
 
     private static void arrShift(int[] arr, int shift) {
-        int temp;
-        for (int i = 0; i < arr.length; i++) {
-            int x = arr.length - (shift - i);
-            while (true) {
-                if(x >= arr.length) {
-                    x-=5;
-                }else if (x<0) {
-                    x+=5;
-                }else break;
+        int temp = arr[0];
+        int x = arr.length - (shift);
+        while (true) {
+            if(x >= arr.length) {
+                x-=5;
+            }else if (x<0) {
+                x+=5;
+            }else {
+                arr[0] = arr[x];
+                System.out.print(arr[x] + " ");
+                break;
             }
-            temp = arr[i];
-            arr[i] = arr[x];
-            System.out.print(arr[x] + " ");
+        }
+        for (int i = 1; i < arr.length; i++) {
+            arr[i] = temp;
+            temp += shift;
+            System.out.print(arr[i] + " ");
 
         }
     }
