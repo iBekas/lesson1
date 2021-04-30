@@ -11,7 +11,7 @@ public class lesson3 {
 
         // Задание 3 - мещение эллементов массива на n, метод -arrShift;
         int[] arrForShift = {1, 2, 3, 4, 5};
-        int shift = -2;
+        int shift = 2;
         System.out.print("Задание 3 - ");
         System.out.println(Arrays.toString(arrShift(arrForShift, shift)));
         System.out.println(" ");
@@ -31,9 +31,9 @@ public class lesson3 {
             int x = arr.length - (shift - i);
             while (true) {
                 if(x >= arr.length) {
-                    x-=5;
+                    x-= arr.length;
                 }else if (x<0) {
-                    x+=5;
+                    x+=arr.length;
                 }else break;
             }
             temp[x] = arr[i];
