@@ -11,9 +11,9 @@ public class lesson3 {
 
         // Задание 3 - мещение эллементов массива на n, метод -arrShift;
         int[] arrForShift = {1, 2, 3, 4, 5};
-        int shift = 2;
+        int shift = 1;
         System.out.print("Задание 3 - ");
-        arrShift(arrForShift, shift);
+        System.out.println(Arrays.toString(arrShift(arrForShift, shift)));
         System.out.println(" ");
 
         // Задание 2 выполнил в прошлом ДЗ
@@ -24,26 +24,20 @@ public class lesson3 {
 
     }
 
-    private static void arrShift(int[] arr, int shift) {
-        int temp = arr[0];
-        int x = arr.length - (shift);
-        while (true) {
-            if(x >= arr.length) {
-                x-=5;
-            }else if (x<0) {
-                x+=5;
-            }else {
-                arr[0] = arr[x];
-                System.out.print(arr[x] + " ");
-                break;
+    private static int[] arrShift(int[] arr, int shift) {
+        int[] temp = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            int x = arr.length - (shift - i);
+            while (true) {
+                if(x >= arr.length) {
+                    x-=5;
+                }else if (x<0) {
+                    x+=5;
+                }else break;
             }
+            temp[x] = arr[i];
         }
-        for (int i = 1; i < arr.length; i++) {
-            arr[i] = temp;
-            temp += shift;
-            System.out.print(arr[i] + " ");
-
-        }
+        return temp;
     }
 
 
@@ -56,20 +50,23 @@ public class lesson3 {
             System.out.print("Я загадал одно из этих слов - " + Arrays.toString(arr) + "\nКак ты думаешь какое слово я загадал? >>> ");
             String userAnswer = scanner.next();
             userAnswer = userAnswer.toLowerCase(Locale.ROOT);
-            if (arr[answer].equals(userAnswer)) {
-                System.out.println("Ты угадал!!!");
-            } else {
-                System.out.println("Ты не угадал. Попробуй еще раз, держи подсказку! Если буквы совпали, они появятся всмето #.");
-                for (int i = 0; i < 15; i++) {
-                    String test1 = arr[answer] + "................."; // я знаю, что это ОЧЕНЬ изящное решение, но уже 12 ночи, сделайте поблажку=)
-                    String test2 = userAnswer + ",,,,,,,,,,,,,,,,,";
-                    a = test1.charAt(i);
-                    b= test2.charAt(i);
-                    if (a==b) System.out.print(a);
-                    else System.out.print("#");
+            while (true) {
+                if (arr[answer].equals(userAnswer)) {
+                    System.out.println("Ты угадал!!!");
+                    break;
+                } else {
+                    System.out.println("Ты не угадал. Попробуй еще раз, держи подсказку! Если буквы совпали, они появятся всмето #.");
+                    for (int i = 0; i < 15; i++) {
+                        String test1 = arr[answer] + "................."; // я знаю, что это ОЧЕНЬ изящное решение, но уже 12 ночи, сделайте поблажку=)
+                        String test2 = userAnswer + ",,,,,,,,,,,,,,,,,";
+                        a = test1.charAt(i);
+                        b = test2.charAt(i);
+                        if (a == b) System.out.print(a);
+                        else System.out.print("#");
+                    }
+                    System.out.println(" ");
+                    userAnswer = scanner.next();
                 }
-                System.out.println(" ");
-                userAnswer = scanner.next();
             }
             System.out.println("Еще разок? 1- да, 0 - нет.");
             int userChoice = scanner.nextInt();
