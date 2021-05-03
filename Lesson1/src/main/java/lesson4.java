@@ -78,46 +78,81 @@ public class lesson4 {
     }
 
     private static boolean whoWin (char dot) {
-        boolean check = false;
-        for (int i = 0; i < WIDTH_X; i++) {
-            if (FIELD_SIZE[i][i] == dot) check = true;
-            else{
-                check=false;
-                break;
-            }
-        }
-        if (check) return true;
+            boolean check = false;
+            if(WIDTH_X < 5) {
+                for (int i = 0; i < WIDTH_X; i++) {
+                    if (FIELD_SIZE[i][i] == dot) check = true;
+                    else {
+                        check = false;
+                        break;
+                    }
+                }
+                if (check) return true;
 
-        for (int i = 0; i < WIDTH_X; i++) {
-            if (FIELD_SIZE[i][FIELD_SIZE.length - 1 - i] == dot) check = true;
-            else{
-                check=false;
-                break;
-            }
-        }
-        if (check) return true;
+                for (int i = 0; i < WIDTH_X; i++) {
+                    if (FIELD_SIZE[i][FIELD_SIZE.length - 1 - i] == dot) check = true;
+                    else {
+                        check = false;
+                        break;
+                    }
+                }
+                if (check) return true;
 
-        for (int i = 0; i < WIDTH_X; i++) {
-            for (int j = 0; j < WIDTH_Y; j++) {
-                if (FIELD_SIZE[i][j] == dot) check = true;
-                else{
-                    check=false;
-                    break;
+                for (int i = 0; i < WIDTH_X; i++) {
+                    for (int j = 0; j < WIDTH_Y; j++) {
+                        if (FIELD_SIZE[i][j] == dot) check = true;
+                        else {
+                            check = false;
+                            break;
+                        }
+                    }
+                    if (check) return true;
+                }
+
+                for (int i = 0; i < WIDTH_Y; i++) {
+                    for (int j = 0; j < WIDTH_X; j++) {
+                        if (FIELD_SIZE[j][i] == dot) check = true;
+                        else {
+                            check = false;
+                            break;
+                        }
+                    }
+                    if (check) return true;
                 }
             }
-            if (check) return true;
-        }
 
-        for (int i = 0; i < WIDTH_Y; i++) {
-            for (int j = 0; j < WIDTH_X; j++) {
-                if (FIELD_SIZE[j][i] == dot) check = true;
-                else{
-                    check=false;
-                    break;
+            if (WIDTH_X == 5) {
+                int counter = 0;
+                for (int i = 0; i < WIDTH_X; i++) {
+                    if (FIELD_SIZE[i][i] == dot) ++counter;
                 }
+                if (counter == 4) return true;
+                else counter = 0;
+
+                for (int i = 0; i < WIDTH_X; i++) {
+                    if (FIELD_SIZE[i][FIELD_SIZE.length - 1 - i] == dot) ++counter;
+                }
+                if (counter == 4) return true;
+                else counter = 0;
+
+                for (int i = 0; i < WIDTH_X; i++) {
+
+                    for (int j = 0; j < WIDTH_Y; j++) {
+                        if (FIELD_SIZE[i][j] == dot) ++counter;
+                    }
+                    if (counter == 4) return true;
+                    else counter = 0;
+                }
+
+                for (int i = 0; i < WIDTH_Y; i++) {
+                    for (int j = 0; j < WIDTH_X; j++) {
+                        if (FIELD_SIZE[j][i] == dot) ++counter;
+                    }
+                    if (counter == 4) return true;
+                    else counter = 0;
+                }
+
             }
-            if (check) return true;
-        }
         return false;
     }
 
