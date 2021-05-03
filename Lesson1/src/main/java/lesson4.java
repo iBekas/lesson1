@@ -68,7 +68,7 @@ public class lesson4 {
     }
 
     private static boolean stupidHuman (int x, int y) {
-        if (x < 0 || x > WIDTH_X || y <0 || y > WIDTH_Y) return false;
+        if (x < 0 || x > WIDTH_X || y <0 || y > WIDTH_Y) return false; // если пишу сразу return(условие) - игра постоянно просит ввести координаты, не смог понять в чем косяк
         else return true;
     }
 
