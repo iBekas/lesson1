@@ -1,3 +1,5 @@
+package lesson4;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,6 +19,8 @@ public class lesson4 {
     private static int scoreHuman = 0;
     private static int scoreAI = 0;
 
+    private static int combinationForWin;
+
     public static void main(String[] args) {
         game ();
     }
@@ -25,6 +29,7 @@ public class lesson4 {
         System.out.println("Введите размер поля >>>");
         int inputSize = SCANNER.nextInt();
         WIDTH_Y = WIDTH_X = inputSize;
+        if (inputSize >=5) combination();
         FIELD_SIZE = new char[WIDTH_X][WIDTH_Y];
         for (int i = 0; i < WIDTH_X; i++) {
             for (int j = 0; j < WIDTH_Y; j++) {
@@ -121,34 +126,42 @@ public class lesson4 {
                 }
             }
 
-            if (WIDTH_X == 5) {
+            if (WIDTH_X >= 5) {
                 int counter = 0;
                 for (int i = 0; i < WIDTH_X; i++) {
                     if (FIELD_SIZE[i][i] == dot) ++counter;
+                    else if(counter > combinationForWin) counter = 0;
+                    else if (counter == combinationForWin) break;
                 }
-                if (counter == 4) return true;
+                if (counter == combinationForWin) return true;
                 else counter = 0;
 
                 for (int i = 0; i < WIDTH_X; i++) {
                     if (FIELD_SIZE[i][FIELD_SIZE.length - 1 - i] == dot) ++counter;
+                    else if(counter > combinationForWin) counter = 0;
+                    else if (counter == combinationForWin) break;
                 }
-                if (counter == 4) return true;
+                if (counter == combinationForWin) return true;
                 else counter = 0;
 
                 for (int i = 0; i < WIDTH_X; i++) {
 
                     for (int j = 0; j < WIDTH_Y; j++) {
                         if (FIELD_SIZE[i][j] == dot) ++counter;
+                        else if(counter > combinationForWin) counter = 0;
+                        else if (counter == combinationForWin) break;
                     }
-                    if (counter == 4) return true;
+                    if (counter == combinationForWin) return true;
                     else counter = 0;
                 }
 
                 for (int i = 0; i < WIDTH_Y; i++) {
                     for (int j = 0; j < WIDTH_X; j++) {
                         if (FIELD_SIZE[j][i] == dot) ++counter;
+                        else if(counter > combinationForWin) counter = 0;
+                        else if (counter == combinationForWin) break;
                     }
-                    if (counter == 4) return true;
+                    if (counter == combinationForWin) return true;
                     else counter = 0;
                 }
 
@@ -177,6 +190,11 @@ public class lesson4 {
             return true;
         }
         return false;
+    }
+
+    private static void combination() {
+        System.out.println("Введите комбинация для победы >>>");
+        combinationForWin = SCANNER.nextInt();
     }
 
     private static void game () {

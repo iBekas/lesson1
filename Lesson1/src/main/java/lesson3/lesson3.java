@@ -1,3 +1,5 @@
+package lesson3;
+
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Random;
@@ -74,6 +76,24 @@ public class lesson3 {
             if (userChoice != 1) break;
         }
     }
+
+
+//    fillWithX(chars);
+//            for (int i = 0; i < wordUser.length() && i < wordAI.length(); i++) {
+//        if (wordUser.charAt(i) == wordAI.charAt(i)) chars[i] = wordAI.charAt(i);
+//    }
+//            System.out.println("No, you guessed theese letters:");
+//            System.out.println(new String(chars));
+//}
+//
+//
+//    }
+//
+//static void fillWithX(char[] arr) {
+//        for (int i = 0; i < arr.length; i++) {
+//        arr[i] = '#';
+//        }
+//        }
 
 
 
