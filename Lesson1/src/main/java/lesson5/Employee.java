@@ -21,6 +21,10 @@ public class Employee {
         System.out.printf("Ф.И.О. сотрудника: %s, Позиция в компании: %s, Тел.: %d, Заработная плата: %d, Возраст сотрудника: %d\n", fullName, position, phone, salary, age);
     }
 
+    public void necessaryAge(int n) {
+        if (this.age > n) System.out.printf("Ф.И.О. сотрудника: %s, Позиция в компании: %s, Почтовый ящик: %s, Тел.: %d, Заработная плата: %d, Возраст сотрудника: %d\n", this.getFullName(), this.getPosition(), this.getEmail(), this.getPhone(), this.getSalary(), this.getAge());
+    }
+
     public int getAge(){
         return this.age;
     }
