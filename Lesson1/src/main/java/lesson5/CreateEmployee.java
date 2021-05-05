@@ -10,7 +10,7 @@ public class CreateEmployee {
         employeeArr[3] = new Employee("Муад'Диб", "Квисатц Хаддерах", "payl@dune.com" , 111111111, 2000, 17);
         employeeArr[4] = new Employee("Геннадий Букин", "Продовец обуви", "gena@shit.ru" ,22000000, 1, 45);
 
-        employeeArr[1].consoleOutput();
+//        employeeArr[1].consoleOutput();
 
         necessaryAge(employeeArr, 40);
 
@@ -18,7 +18,7 @@ public class CreateEmployee {
 
     public static void necessaryAge(Employee[] arr, int n){
         for (Employee i: arr) {
-            if( i.getAge() > n) System.out.printf(i.getFullName() + " страрше %d лет.\n", n);
+            if( i.getAge() > n) System.out.printf("Ф.И.О. сотрудника: %s, Позиция в компании: %s, Почтовый ящик: %s, Тел.: %d, Заработная плата: %d, Возраст сотрудника: %d\n", i.getFullName(), i.getPosition(), i.getEmail(), i.getPhone(), i.getSalary(), i.getAge());
             }
         }
 

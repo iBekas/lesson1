@@ -29,5 +29,19 @@ public class Employee {
         return this.fullName;
     }
 
+    public String getEmail(){
+        return this.email;
+    }
 
+    public int getSalary(){
+        return this.salary;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
 }
