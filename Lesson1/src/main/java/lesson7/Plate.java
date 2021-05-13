@@ -4,7 +4,7 @@ public class Plate {
 
      private int food;
      private int maxFood;
-     private final int MIN_FOOD = 0;
+//     private final int MIN_FOOD = 0;
 
     public Plate(int food, int maxFood) {
         this.food = food;
@@ -22,7 +22,7 @@ public class Plate {
     }
 
     public boolean minusFood (int feed) {
-        if(this.food < MIN_FOOD) {
+        if(feed > this.food) {
             System.out.println("В тарелке нет такого количетсва еды. Ну вы и жрете!");
             return false;
         } else {
@@ -33,7 +33,7 @@ public class Plate {
 
 
     public int getFood() {
-        return food;
+        return this.food;
     }
 
     public int getMaxFood() {
@@ -42,8 +42,6 @@ public class Plate {
 
     @Override
     public String toString() {
-        return "Plate{" +
-                "food=" + food +
-                '}';
+        return String.format("Из тарелки вкусно пахнет, в ней %d килограмм еды.", this.food);
     }
 }

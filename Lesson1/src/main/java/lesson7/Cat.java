@@ -5,6 +5,7 @@ public class Cat {
     private String name;
     private int appetite;
     private boolean satiety;
+    private int halfSatiety = 0;
 
     public Cat(String name, int appetite) {
         this.name = name;
@@ -13,11 +14,18 @@ public class Cat {
     }
 
     public boolean eat (Plate food){
-        if (food.minusFood(this.appetite)) {
-            System.out.printf("%s поле и довольный пошел ловить мышей!\n", this.name);
+        if (this.satiety == true) {
+            System.out.printf("%s уже поел, больше не лезет!\n", this.name);
+            return this.satiety;
+        }
+        if (food.minusFood(this.appetite - halfSatiety)) {
+            halfSatiety = 0;
+            System.out.printf("%s поел и довольный пошел ловить мышей!\n", this.name);
             return this.satiety = true;
         } else {
-            System.out.printf("%s отказывается смотреть на эти жалкие крохи!\n", this.name);
+            halfSatiety = food.getFood();
+            food.minusFood(halfSatiety);
+            System.out.printf("%s съел %d еды, но он все еще голоден!\n", this.name, halfSatiety);
             return this.satiety;
         }
     }
@@ -27,7 +35,7 @@ public class Cat {
         return appetite;
     }
 
-    public boolean isSatiety() {
+    public boolean getSatiety() {
         return satiety;
     }
 
@@ -37,11 +45,11 @@ public class Cat {
 
     @Override
     public String toString() {
-        return "Cat{" +
-                "name='" + name + '\'' +
-                ", satiety=" + satiety +
-                '}';
+        if (this.satiety == true) return String.format("%s сытый и довольный!", this.name);
+        else return String.format("%s голоден, скорее его накорми!\n", this.name);
     }
 
 
 }
+
+//halfSatiety = this.appetite - plate.getFood;
