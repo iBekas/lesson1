@@ -1,0 +1,37 @@
+package lesson5;
+
+public class CreateEmployee {
+
+    public static int requestAge = 40;
+    public static Employee[] employeeArr = new Employee[5];
+
+    public static void main(String[] args) {
+
+        employeeArr[0] = new Employee("Андуин Рин", "Жрец", "rin@wow.com" , 800000000, 5000, 26);
+        employeeArr[1] = new Employee("Далинар Холин", "Светлорд","holyn@archive.com" , 70000000, 4000, 50);
+        employeeArr[2] = new Employee("Зубен Беллиарский", "Владыка Варанта", "zyben@gotic.com" , 66666666, 3000, 44);
+        employeeArr[3] = new Employee("Муад'Диб", "Квисатц Хаддерах", "payl@dune.com" , 111111111, 2000, 17);
+        employeeArr[4] = new Employee("Геннадий Букин", "Продовец обуви", "gena@shit.ru" ,22000000, 1, 45);
+
+//        employeeArr[1].consoleOutput();
+
+        necessaryAge(employeeArr, requestAge);
+
+        necessaryAge2();
+
+    }
+
+    public static void necessaryAge(Employee[] arr, int n){
+        for (Employee i: arr) {
+            if( i.getAge() > n) System.out.printf("Ф.И.О. сотрудника: %s, Позиция в компании: %s, Почтовый ящик: %s, Тел.: %d, Заработная плата: %d, Возраст сотрудника: %d\n", i.getFullName(), i.getPosition(), i.getEmail(), i.getPhone(), i.getSalary(), i.getAge());
+            }
+        }
+
+    public static void necessaryAge2() {
+        for (Employee i: employeeArr) i.necessaryAge(requestAge);
+    }
+
+}
+
+
+
